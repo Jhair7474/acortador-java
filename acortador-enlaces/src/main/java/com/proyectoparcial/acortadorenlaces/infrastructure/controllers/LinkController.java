@@ -42,8 +42,7 @@ public class LinkController {
 
     @GetMapping("/{code}")
     public void redirectToOriginalUrl(@PathVariable String code, HttpServletResponse response) throws IOException {
-        // Buscamos el código recorriendo la base de datos (seguro y sin fallos de
-        // Redis)
+      
         Link link = repository.findAll().stream()
                 .filter(l -> l.getShortenedUrl().endsWith(code))
                 .findFirst()

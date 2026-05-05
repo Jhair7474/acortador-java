@@ -31,27 +31,27 @@ public class MultiDbAdapter implements LinkRepositoryPort {
 
     @Override
     public void save(Link link) {
-        // 1. MySQL
+        
         jdbc.update(
                 "INSERT INTO links (original_url, shortened_url) VALUES (?, ?)",
                 link.getOriginalUrl(),
                 link.getShortenedUrl());
 
-        // 2. MongoDB: Guardado en la colección "enlace"
+        
         try {
             Document doc = new Document()
                     .append("shortened_url", link.getShortenedUrl())
                     .append("image_url", link.getImageUrl())
                     .append("description", link.getDescription());
 
-            // --- CAMBIO AQUÍ: Nombre de la colección ---
+           
             mongo.insert(doc, "enlace");
             System.out.println("🍃 [MONGO] Guardado en colección 'enlace': " + link.getDescription());
         } catch (Exception e) {
             System.err.println("❌ [MONGO ERROR]: " + e.getMessage());
         }
 
-        // 3. Redis
+      
         if (link.getOriginalUrl() != null && link.getOriginalUrl().length() >= 50) {
             try {
                 redis.opsForValue().set(link.getShortenedUrl(), link.getOriginalUrl());
@@ -76,7 +76,7 @@ public class MultiDbAdapter implements LinkRepositoryPort {
             try {
                 Query query = new Query(Criteria.where("shortened_url").is(link.getShortenedUrl()));
 
-                // --- CAMBIO AQUÍ: Nombre de la colección ---
+                
                 Document doc = mongo.findOne(query, Document.class, "enlace");
 
                 if (doc != null) {
