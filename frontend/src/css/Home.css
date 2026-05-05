@@ -1,0 +1,101 @@
+/* css/Home.css */
+.home-container {
+    max-width: 650px; /* Aumentamos el ancho */
+    margin: 80px auto; /* Más espacio arriba para centrarlo visualmente */
+    padding: 40px;
+    background-color: #1e1e24; /* Un gris ligeramente más claro para que se note el borde */
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    border: 1px solid #333; /* Un borde sutil para definir el cuadrito */
+}
+
+.home-container h2 {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 2rem; /* Título más grande */
+    font-weight: 600;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Más espacio entre inputs */
+}
+
+.input-field {
+    padding: 15px 20px; /* Inputs más altos y cómodos */
+    background-color: #2a2a32;
+    border: 2px solid #444;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px; /* Texto más grande al escribir */
+    transition: all 0.3s ease;
+}
+
+/* Color del placeholder más claro para que se lea bien */
+.input-field::placeholder {
+    color: #aaa;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #33333d;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Éxito: Cuando el link ya está acortado */
+.input-field.shortened {
+    border-color: #28a745;
+    color: #2ecc71;
+    background-color: #1e2b1e;
+    font-weight: bold;
+}
+
+.textarea-field {
+    resize: none;
+    min-height: 120px;
+}
+
+.btn-acortar {
+    padding: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px; /* Texto del botón más grande */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Brillo en el botón */
+}
+
+.btn-acortar:hover {
+    background-color: #0069d9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+}
+
+.btn-acortar:active {
+    transform: translateY(-1px);
+}
+
+/* Estilos para los botones de navegación superiores */
+nav button, .nav-link {
+    background-color: #007bff !important; /* Azul vibrante */
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+nav button:hover {
+    background-color: #0056b3 !important;
+}
